@@ -1,0 +1,89 @@
+@use 'variaveis';
+@use 'header';
+@use 'hero';
+@use 'characters';
+@use 'footer';
+@use 'about';
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url(../../assets/fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Regular\ TheFontsMaster.com.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url(../../assets/fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Bold\ TheFontsMaster.com.woff);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Proxima Nova, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: variaveis.$background;
+}
+
+@mixin text($fontSize: 20px) {
+    font-size: $fontSize;
+    color: variaveis.$cordark;
+}
+
+@mixin title($fontSize: 28px) {
+    @include text($fontSize);
+    color: variaveis.$corTexto2;
+}
+
+.text {
+    @include text;
+
+    @media (max-width: 486px) {
+        @include text(18px);
+    }
+}
+
+.title {
+    @include title;
+
+    @media (max-width: 486px) {
+        @include title(24px);
+    }
+}
+
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out; 
+    -moz-transition: all 0.15s ease-out; 
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out; 
+    -moz-transition: all 0.15s ease-out; 
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}

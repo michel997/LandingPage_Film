@@ -1,0 +1,76 @@
+@use 'variaveis';
+
+.about {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+    h2 {
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    @media (max-width: 486px) {
+        display: block;
+    }
+
+    @media (max-width: 970px) and (min-width: 486px) {
+        margin-top: -250px;
+    }
+
+
+    &__content {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        p {
+            text-align: justify;
+        }
+    }
+
+    &__tickets {
+        text-align: center;
+
+        @media (max-width: 486px) {
+            padding-top: 20px;
+        }
+
+        h2 {
+            padding-bottom: 35px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+
+            @media (max-width: 970px) and (min-width: 486px) {
+                display: inline-block;
+            }
+        }
+
+        .btn1 {
+            background-color: variaveis.$corIngresso;
+            color: variaveis.$corTexto1;
+
+            &.btn1:hover {
+                background-color: variaveis.$ingressoBackground;
+                transition: 0.8s;
+            }
+        }
+
+        .btn2 {
+            background-color: variaveis.$corCinemark;
+            color: variaveis.$corTexto1;
+
+            &.btn2:hover {
+                background-color: variaveis.$cinemarkBackground;
+                color: variaveis.$corCinemark;
+                transition: 0.8s;
+            }
+        }
+    }
+}
